@@ -45,4 +45,7 @@ PLAN:
   -> /acts/:id/edit
   - bonus view: a single dashboard view that shows all acts, all amoebas, and a form to move amoebas
 
+Questions:
+- what is the form_for do?
+- where is the params set?
 

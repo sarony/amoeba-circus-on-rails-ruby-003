@@ -1,0 +1,11 @@
+<h1>Listing acts</h1>
+
+
+<% @acts.each do |act| %>
+  <h3><%= act.name %></h3>
+  <% act.performers.each do |performer| %>
+    <ul>
+      <li><%= performer.name %> <td><%= link_to 'Move', move_performer_path(performer) %></td></li>
+    </ul> 
+  <% end %>
+<% end %>

@@ -1,5 +1,5 @@
 class PerformersController < ApplicationController
-  before_action :set_performer, only: [:show, :edit, :update, :split, :destroy]
+  before_action :set_performer, only: [:show, :edit, :update, :split, :move, :move_act, :destroy]
 
   # GET /performers
   # GET /performers.json
@@ -34,7 +34,6 @@ class PerformersController < ApplicationController
       end
     else
     end
-    #binding.pry
 
     respond_to do |format|
       if @performer.save
@@ -45,6 +44,22 @@ class PerformersController < ApplicationController
         format.json { render json: @performer.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def move
+  end
+
+
+  def move_act
+    @performer.acts.clear
+    if params[:act]
+      params[:act].each do |act_id|
+        @performer.act_performers.build(:act_id => act_id)
+      end
+    else
+    end
+    redirect_to index_path if @performer.update(performer_params) 
+
   end
 
   # PATCH/PUT /performers/1
@@ -79,6 +94,7 @@ class PerformersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 
   # DELETE /performers/1
   # DELETE /performers/1.json

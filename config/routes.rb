@@ -4,6 +4,13 @@ AmoebaCircusOnRailsRuby003::Application.routes.draw do
 
   post 'performers/:id' => 'performers#split'
 
+  get '/index' => 'dashboard#index'
+  post '/index' => 'dashboard#index'
+  get '/index/move-performer' => 'dashboard#move'
+  get '/index/performers/:id/move' => 'performers#move', as: 'move_performer'
+  post '/index/performers/:id/move' => 'performers#move_act'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

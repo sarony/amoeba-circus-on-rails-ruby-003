@@ -1,0 +1,16 @@
+  <h1>Change the Act for <%= @performer.name if @performer %> </h1>
+
+  <%= form_for(index_path) do |f|%> 
+  <input type="hidden" id="performer_id" name="performer[id]" value=<%= @performer.id %> />
+
+  <% Act.all.each do |a| %>
+  <div class="checkbox"> 
+    <%= check_box_tag('act[]', a.id, a.performers.include?(@performer), :id => a.name ) %>
+    <%= label_tag a.name %>
+  </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit "Update" %>
+  </div>
+  <% end %>
