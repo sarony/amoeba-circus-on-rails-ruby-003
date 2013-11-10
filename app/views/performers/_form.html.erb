@@ -1,0 +1,29 @@
+<%= form_for(@performer) do |f| %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :talent %><br>
+    <%= f.text_field :talent, {:value => (@performer.talent.name if @performer.talent)}  %> 
+    <%#= text_field(@performer.talent, :value => (@performer.talent.name if @performer.talent) ) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :generation_number %><br>
+    <%= f.number_field :generation_number %>
+  </div>
+
+  <% Act.all.each do |a| %>
+  <div class="checkbox"> 
+    <%= check_box_tag('act[]', a.id, a.performers.include?(@performer), :id => a.name ) %>
+    <%= label_tag a.name %>
+  </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @performer.name %>
+</p>
+
+<p>
+  <strong>Talent:</strong>
+  <%= @performer.talent.name %>
+</p>
+
+<p>
+  <strong>Generation number:</strong>
+  <%= @performer.generation_number %>
+</p>
+
+<p>
+  <strong>Acts:</strong>
+  <% @performer.acts.each do |act| %>
+  <ul>
+  <li><%= act.name %></li>
+  </ul>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_performer_path(@performer) %> |
+<%= link_to 'Back', performers_path %>

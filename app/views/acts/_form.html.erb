@@ -1,0 +1,29 @@
+<%= form_for(@act) do |f| %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :date %><br>
+    <%= f.date_select :date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :time %><br>
+    <%= f.time_select :time %>
+  </div>
+
+  <% Performer.all.each do |p| %>
+  <div class="checkbox"> 
+    <%= check_box_tag('performer[]', p.id, p.acts.include?(@act), :id => p.name ) %>
+    <%= label_tag p.name %>
+  </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>
