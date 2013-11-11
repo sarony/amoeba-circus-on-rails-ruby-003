@@ -2,12 +2,10 @@ AmoebaCircusOnRailsRuby003::Application.routes.draw do
   resources :acts
   resources :performers
 
-  post 'performers/:id' => 'performers#split'
+  get 'performers/:id/split' => 'performers#split', :as => 'split_performer'
 
   get '/index' => 'dashboard#index'
-  post '/index' => 'dashboard#index'
-  get '/index/move-performer' => 'dashboard#move'
-  get '/index/performers/:id/move' => 'performers#move', as: 'move_performer'
+  get '/index/performers/:id/move' => 'performers#move', as: 'move_performer' 
   post '/index/performers/:id/move' => 'performers#move_act'
 
 

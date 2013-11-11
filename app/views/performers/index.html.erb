@@ -20,7 +20,7 @@
         <td><%= performer.generation_number %></td>
         <td><%= link_to 'Show', performer %></td>
         <td><%= link_to 'Edit', edit_performer_path(performer) %></td>
-        <td><%= link_to 'Split', performer, :method => :split %></td>
+        <td><%= link_to 'Split', split_performer_path(performer) %></td>
         <td><%= link_to 'Destroy', performer, :method => :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

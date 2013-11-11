@@ -58,7 +58,7 @@ class PerformersController < ApplicationController
       end
     else
     end
-    redirect_to index_path if @performer.update(performer_params) 
+    redirect_to index_path if @performer.save
 
   end
 
